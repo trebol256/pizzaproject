@@ -1,0 +1,20 @@
+# Use the official Python image with Alpine Linux
+FROM python:3.12.4-alpine
+
+# Set working directory inside the container
+WORKDIR /app
+
+# Copy requirements.txt into the container
+COPY requirements.txt /app/
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the current directory contents into the container at /app
+COPY . /app/
+
+# Expose port 8000
+EXPOSE 8000
+
+# Command to run your application
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
