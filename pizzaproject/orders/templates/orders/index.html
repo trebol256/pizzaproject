@@ -1,0 +1,10 @@
+<h1>Pizza Order Form</h1>
+
+<form action="{% url 'orders:order_request' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create Order">
+</form>
+<ul>
+    <li><a href="{% url 'orders:order_table'  %}">Check pendings Pizza orders</a></li>
+</ul>

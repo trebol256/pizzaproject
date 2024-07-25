@@ -1,0 +1,15 @@
+<table>
+    <tr>
+        <th>Pizza Type</th>
+        <th>Comments</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td>{{ order.pizzatype }}</td>
+        <td>{{ order.commentorder }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<ul>
+    <li><a href="{% url 'orders:order_request'  %}">Create another Pizza order</a></li>
+</ul>
