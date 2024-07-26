@@ -36,7 +36,7 @@ jobs:
       run: |
         COMMIT_SHORT=$(echo ${{ github.sha }} | cut -c1-7)
         cd helm
-        helm package . --version ${COMMIT_SHORT}
+        helm package . --version 0.1.0+${COMMIT_SHORT}
 
     - name: Upload Helm Chart as artifact
       uses: actions/upload-artifact@v2
