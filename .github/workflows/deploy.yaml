@@ -30,3 +30,14 @@ jobs:
         cd pizzaproject
         docker build . -t trebol256/pizzaproject:latest
         docker push trebol256/pizzaproject:latest
+
+    - name: Package Helm Chart
+      run: |
+        cd helm
+        helm package .
+
+    - name: Upload Helm Chart as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: helm-chart
+        path: helm/*.tgz
