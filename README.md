@@ -25,15 +25,15 @@ b. A text area for comments or special instructions.
  - **Deploy using Docker**
  The project has a `Dockerfile` with which you can generate a container image. The steps to generate the image are as follows.
 
-    `cd pizzaproject`
-    `docker build -t {custom_image_name:custom_tag} .`
+    - `cd pizzaproject`
+    - `docker build -t {custom_image_name:custom_tag} .`
       
       Then to run the previous created image you will need to set an environment variable
       *SECRET_KEY*, this variable is needed to app run as expected, please refer to the contributors
       of this repo to get the value of the variable. 
 
 	The command should see as follows:
-    `docker run -p 8000:8000 -e SECRET_KEY=$SECRET_KEY {custom_image_name:custom_tag}`
+    - `docker run -p 8000:8000 -e SECRET_KEY=$SECRET_KEY {custom_image_name:custom_tag}`
  
  - **Deploy using Helm**
 	The project also have a Helm implementation to deploy the application in a target Kubernetes cluster, if you want to deploy the app locally, you can use minikube or similar to test the application with one or more instances, the helm chart permit the customization of different variables like the number of instances for the application, the image container, host path, the environment of the app, etc. 
@@ -44,11 +44,11 @@ b. A text area for comments or special instructions.
 	First make sure you have installed minikube and it's running with the command:
 	minikube start
 	Then in the project folder go the helm folder and run the helm install command:
-	cd helm
-	helm install pizzaproject . --set secret.djangoSecretKey=$SECRET_KEY
+	- `cd helm`
+	- `helm install pizzaproject . --set secret.djangoSecretKey=$SECRET_KEY`
 	
 	After creating the Release with the previous command you can make changes to the deployment values, which are found in the `values.yaml` file. To apply these changes you can use the helm upgrade command. Below is an example of how the command would look to apply the changes with the Release already created.
-	helm upgrade --install pizzaproject .
+	- `helm upgrade --install pizzaproject .`
 	
 ## CICD workflows
 This project has workflows created to run as github actions pipelines, below we will describe what each of the files does.
