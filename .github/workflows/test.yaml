@@ -23,3 +23,26 @@ jobs:
           python manage.py migrate
           python manage.py test
         working-directory: ./pizzaproject
+  
+  lint:
+      name: Lint Code
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set Up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.12.4
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pylint
+        working-directory: ./pizzaproject
+
+      - name: Lint Code
+        run: |
+          pylint mypizza/
+        working-directory: ./pizzaproject
