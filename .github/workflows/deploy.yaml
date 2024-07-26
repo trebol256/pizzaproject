@@ -30,10 +30,3 @@ jobs:
         cd pizzaproject
         docker build . -t trebol256/pizzaproject:latest
         docker push trebol256/pizzaproject:latest
-
-    # - name: Deploy to Kubernetes
-    #   env:
-    #     DJANGO_SECRET_KEY: {{ secrets.DJANGO_SECRET_KEY }}
-    #   run: |
-    #       cd helm
-    #       helm install prod . --set secret.djangoSecretKey=$DJANGO_SECRET_KEY

@@ -38,3 +38,4 @@ secret:
 
 application:
   name: pizzaproject
+  env: prod

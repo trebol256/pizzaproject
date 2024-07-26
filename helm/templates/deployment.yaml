@@ -18,6 +18,8 @@ spec:
           ports:
             - containerPort: 8000
           env:
+            - name: ENV
+              value: "{{ .Values.application.env }}"
             - name: SECRET_KEY
               valueFrom:
                 secretKeyRef:
