@@ -44,5 +44,5 @@ jobs:
 
       - name: Lint Code
         run: |
-          pylint mypizza/
+          pylint pizzaproject/
         working-directory: ./pizzaproject
