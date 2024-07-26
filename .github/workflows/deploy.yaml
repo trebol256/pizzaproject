@@ -1,4 +1,4 @@
-name: Deploy to Kubernetes
+name: Deploy artifact to Docker Hub
 
 on:
   push:

@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: trebol256/pizzaproject
-  tag: "2.0"
+  tag: "latest"
   pullPolicy: IfNotPresent
 
 service:
