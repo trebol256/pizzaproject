@@ -15,8 +15,10 @@ ENV = os.getenv('ENV')
 
 if ENV == 'prod':
     DB_PATH = os.path.join('/app/db', 'db.sqlite3')
+    DEBUG_VALUE = False
 else:
     DB_PATH = BASE_DIR / 'db.sqlite3'
+    DEBUG_VALUE = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -25,7 +27,7 @@ else:
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = DEBUG_VALUE
 
 ALLOWED_HOSTS = ['*']
 
