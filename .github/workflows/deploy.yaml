@@ -27,17 +27,19 @@ jobs:
 
     - name: Push to Docker Hub
       run: |
+        COMMIT_SHORT=$(echo ${{ github.sha }} | cut -c1-7)
         cd pizzaproject
-        docker build . -t trebol256/pizzaproject:latest
-        docker push trebol256/pizzaproject:latest
+        docker build . -t trebol256/pizzaproject:${COMMIT_SHORT}
+        docker push trebol256/pizzaproject:${COMMIT_SHORT}
 
     - name: Package Helm Chart
       run: |
+        COMMIT_SHORT=$(echo ${{ github.sha }} | cut -c1-7)
         cd helm
-        helm package .
+        helm package . --version ${COMMIT_SHORT}
 
     - name: Upload Helm Chart as artifact
       uses: actions/upload-artifact@v2
       with:
-        name: helm-chart
+        name: helm-chart-${{ github.sha }}
         path: helm/*.tgz
