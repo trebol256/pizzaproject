@@ -4,10 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_run:
-    workflows: ["Testing with Django"]
-    types:
-      - completed
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
