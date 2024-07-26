@@ -42,7 +42,7 @@ b. A text area for comments or special instructions.
 	
 	The steps to deploy the application locally using minikube are described below.
 	First make sure you have installed minikube and it's running with the command:
-	minikube start
+	`minikube start`
 	Then in the project folder go the helm folder and run the helm install command:
 	- `cd helm`
 	- `helm install pizzaproject . --set secret.djangoSecretKey=$SECRET_KEY`
