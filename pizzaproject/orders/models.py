@@ -1,7 +1,5 @@
 from django.db import models
 
-
-
 PIZZA_TYPES = (('Margherita', 'Margherita'), 
                 ('Pepperoni', 'Pepperoni'), 
                 ('Vegetarian', 'Vegetarian'),)
