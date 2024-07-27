@@ -25,6 +25,10 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
+    - name: Lint Dockerfile
+      run: |
+        docker run --rm -i hadolint/hadolint < pizzaproject/Dockerfile
+    
     - name: Push to Docker Hub
       run: |
         COMMIT_SHORT=$(echo ${{ github.sha }} | cut -c1-7)
@@ -32,6 +36,11 @@ jobs:
         docker build . -t trebol256/pizzaproject:${COMMIT_SHORT} -t trebol256/pizzaproject:latest
         docker push trebol256/pizzaproject:${COMMIT_SHORT}
         docker push trebol256/pizzaproject:latest
+
+    - name: Lint Helm Chart
+      run: |
+        cd helm
+        helm lint .
 
     - name: Package Helm Chart
       run: |
