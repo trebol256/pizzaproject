@@ -40,7 +40,7 @@ jobs:
         helm package . --version 0.1.0+${COMMIT_SHORT}
 
     - name: Upload Helm Chart as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: helm-chart-${{ github.sha }}
         path: helm/*.tgz
