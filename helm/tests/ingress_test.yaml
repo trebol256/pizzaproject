@@ -1,0 +1,17 @@
+suite: test ingress
+templates:
+  - ingress.yaml
+tests:
+  - it: should create an Ingress
+    asserts:
+      - isKind:
+          of: Ingress
+      - equal:
+          path: spec.ingressClassName
+          value: nginx
+      - equal:
+          path: spec.rules[0].http.paths[0].path
+          value: /
+      - equal:
+          path: spec.rules[0].http.paths[0].pathType
+          value: Prefix

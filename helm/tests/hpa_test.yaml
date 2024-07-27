@@ -1,0 +1,17 @@
+suite: test hpa
+templates:
+  - hpa.yaml
+tests:
+  - it: should create a HorizontalPodAutoscaler
+    asserts:
+      - isKind:
+          of: HorizontalPodAutoscaler
+      - equal:
+          path: spec.scaleTargetRef.kind
+          value: Deployment
+      - equal:
+          path: spec.minReplicas
+          value: 1
+      - equal:
+          path: spec.maxReplicas
+          value: 5
