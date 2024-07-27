@@ -29,8 +29,9 @@ jobs:
       run: |
         COMMIT_SHORT=$(echo ${{ github.sha }} | cut -c1-7)
         cd pizzaproject
-        docker build . -t trebol256/pizzaproject:${COMMIT_SHORT}
+        docker build . -t trebol256/pizzaproject:${COMMIT_SHORT} -t trebol256/pizzaproject:latest
         docker push trebol256/pizzaproject:${COMMIT_SHORT}
+        docker push trebol256/pizzaproject:latest
 
     - name: Package Helm Chart
       run: |
