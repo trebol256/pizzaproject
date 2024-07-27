@@ -28,10 +28,10 @@ b. A text area for comments or special instructions.
     - `cd pizzaproject`
     - `docker build --target=base -t {custom_image_name:custom_tag} .`
     <br>
-    The --target=base flag is necessary to build only the application docker image, if you avoid this flag the resulting container image will run the tests application in the container, you could use the --target=test instead if you want to run the tests in the container.
+    The `--target=base` flag is necessary to build only the application docker image, if you avoid this flag the resulting container image will run the tests application in the container, you could use the `--target=test` instead if you want to run the tests in the container.
     <br>
       Then to run the previous created image you will need to set an environment variable
-      *SECRET_KEY*, this variable is needed to app run as expected, please refer to the contributors
+      **SECRET_KEY**, this variable is needed to app run as expected, please refer to the contributors
       of this repo to get the value of the variable. 
 
 	The command should see as follows:
