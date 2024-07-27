@@ -28,7 +28,13 @@ jobs:
     - name: Lint Dockerfile
       run: |
         docker run --rm -i hadolint/hadolint < pizzaproject/Dockerfile
-    
+
+    - name: Run Docker tests
+      run: |
+        cd pizzaproject
+        docker build --target=test -t trebol256/pizzaproject:test .
+        docker run --rm -e SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }} trebol256/pizzaproject:test    
+
     - name: Push to Docker Hub
       run: |
         COMMIT_SHORT=$(echo ${{ github.sha }} | cut -c1-7)
